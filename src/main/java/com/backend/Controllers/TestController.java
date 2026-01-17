@@ -50,8 +50,7 @@ public class TestController {
             Query query = entityManager.createNativeQuery("SELECT \"Id\", \"Name\" FROM \"TestProjects\" ORDER BY \"Id\"", TestProjects.class);
             @SuppressWarnings("unchecked")
             List<TestProjects> projects = query.getResultList();
-        int i=0;
-        int j= 5/i;
+        
             return ResponseEntity.ok(projects);
         
     }
