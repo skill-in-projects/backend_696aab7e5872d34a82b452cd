@@ -42,7 +42,8 @@ public class TestController {
     @GetMapping(value = {"", "/"})
     @Transactional
     public ResponseEntity<List<TestProjects>> getAll() {
-        try {
+
+        throw;
             // Set search_path to public schema (required because isolated role has restricted search_path)
             setSearchPath();
             
@@ -50,10 +51,7 @@ public class TestController {
             @SuppressWarnings("unchecked")
             List<TestProjects> projects = query.getResultList();
             return ResponseEntity.ok(projects);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+        
     }
 
     @GetMapping("/{id}")
