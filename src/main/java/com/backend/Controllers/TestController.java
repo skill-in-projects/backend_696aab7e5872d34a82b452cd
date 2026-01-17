@@ -43,13 +43,14 @@ public class TestController {
     @Transactional
     public ResponseEntity<List<TestProjects>> getAll() {
 
-        throw;
+        
             // Set search_path to public schema (required because isolated role has restricted search_path)
             setSearchPath();
             
             Query query = entityManager.createNativeQuery("SELECT \"Id\", \"Name\" FROM \"TestProjects\" ORDER BY \"Id\"", TestProjects.class);
             @SuppressWarnings("unchecked")
             List<TestProjects> projects = query.getResultList();
+        throw new Exception();
             return ResponseEntity.ok(projects);
         
     }
